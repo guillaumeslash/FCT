@@ -1,0 +1,34 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timers Fresque du Climat</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Fresque du Climat</h1>
+    <div id="current-phase-info"></div>
+  </div>
+  <div id="timers-container">
+    <button id="prev-phase-btn" class="phase-btn">Phase précédente</button>
+    <div id="timers">
+      <div id="phase-timer">
+        <h2>Timer Phase</h2>
+        <div id="phase-time">00:15:00</div>
+      </div>
+      <div id="global-timer">
+        <h2>Timer Global</h2>
+        <div id="global-time">03:00:00</div>
+      </div>
+    </div>
+    <button id="next-phase-btn" class="phase-btn">Phase suivante</button>
+    <!-- <button id="reset-btn">Réinitialiser</button> -->
+  </div>
+
+  <script src="steps.json"></script>
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+[
+    {
+    "name": "Phase initiale",
+    "steps": [
+        {
+            "name": "Intro",
+            "duration": 15,
+            "todo": "Faire un brise-glace. Insister sur le caractère scientifique : un jeu créé à partir des données issues du GIEC. Annoncer les 4 phases et poser le cadre collectif. Partager les objectifs de l'atelier et la règle principale : remettre dans l'ordre les causes et conséquences"
+        }
+        ]
+    },
+    {
+      "name": "Phase 1. Réflexion",
+      "steps": [
+        {
+          "name": "Lot 1",
+          "duration": 10,
+          "todo": "Poser les cartes sur la table, images visibles"
+        },
+        {
+          "name": "Lot 2",
+          "duration": 15,
+          "todo": "Distribuer et faire lire les cartes recto-verso à voix haute"
+        },
+        {
+          "name": "Lot 3",
+          "duration": 20,
+          "todo": "Former une colonne avec les cartes 16, 17, 18, 19, 21. Faire tracer les flèches (effaçables). Laisser de la place pour le titre"
+        },
+        {
+          "name": "Lot 4",
+          "duration": 15,
+          "todo": "Faire attention au timing"
+        },
+        {
+          "name": "Lot 5",
+          "duration": 15,
+          "todo": "Faire deviner les 5 dernières cartes. Verbaliser leur baisse de moral et d'énergie : elle est normale. Tout le but de la suite va être de remonter ensemble !"
+        }
+      ]
+    },
+    {
+      "name": "Phase 2",
+      "steps": [
+        {
+          "name": "Créativité & Synthèse",
+          "duration": 15,
+          "todo": "Faire tracer les flèches au propre, trouver un titre, illustrer. Résumer toi-même en 5 min l'ensemble"
+        }
+      ]
+    },
+    {
+      "name": "Phase 3",
+      "steps": [
+        {
+          "name": "Émotions",
+          "duration": 10,
+          "todo": "Faire exprimer les émotions en binômes : « je me sens... » à l'aide de la roue des émotions simplifiée"
+        }
+      ]
+    },
+    {
+      "name": "Phase 4. Discussion & leviers d'action",
+      "steps": [
+        {
+          "name": "Ordres de grandeurs",
+          "duration": 5,
+          "todo": "Présenter quelques visuels & graphiques"
+        },
+        {
+          "name": "Génération d'idées",
+          "duration": 55,
+          "todo": "Partager le triangle de l'inaction. Faire noter en individuel, des idées d'actions. Partage et priorisation sur une matrice impact / difficulté"
+        }
+      ]
+    },
+    {
+      "name": "Phase finale",
+      "steps": [
+        {
+          "name": "Conclusion",
+          "duration": 5,
+          "todo": "Tour de table des ressentis et actions individuelles à entreprendre à son échelle. Encourager à devenir animateur.ice, en particulier dans leur organisation. Partager ta propre expérience d'animateur.ice"
+        }
+      ]
+    }
+  ]
