@@ -1,4 +1,8 @@
 const currentPhaseInfoContainer = document.getElementById('current-phase-info');
+const phaseTitle = currentPhaseInfoContainer.querySelector('h2');
+const phaseDescription = currentPhaseInfoContainer.querySelector('p:first-of-type');
+const stepTitle = currentPhaseInfoContainer.querySelector('h3');
+const stepDescription = currentPhaseInfoContainer.querySelector('p:last-of-type');
 const phaseTimeDisplay = document.getElementById('phase-time');
 const globalTimeDisplay = document.getElementById('global-time');
 const resetBtn = document.getElementById('reset-btn');
@@ -42,7 +46,7 @@ fetch('steps.json')
             const stepElement = document.createElement('div');
             stepElement.classList.add('etape');
   
-            const stepName = document.createElement('h3');
+            const stepName = document.createElement('h3'); // il faut changer ici 
             stepName.textContent = step.name;
             stepElement.appendChild(stepName);
   
@@ -163,29 +167,21 @@ function startPhaseTimer(phase, step) {
   }
 
   function updateCurrentPhaseInfo() {
-    currentPhaseInfoContainer.innerHTML = '';
-  
     if (currentPhase) {
-      const phaseTitle = document.createElement('h2');
       phaseTitle.textContent = currentPhase.name;
-      currentPhaseInfoContainer.appendChild(phaseTitle);
-  
-      if (currentPhase.todo) {
-        const phaseTodo = document.createElement('p');
-        phaseTodo.textContent = currentPhase.todo;
-        currentPhaseInfoContainer.appendChild(phaseTodo);
-      }
+      phaseDescription.textContent = currentPhase.todo || '';
   
       if (currentStep) {
-        const stepTitle = document.createElement('h3');
         stepTitle.textContent = currentStep.name;
-        currentPhaseInfoContainer.appendChild(stepTitle);
-  
-        if (currentStep.todo) {
-          const stepTodo = document.createElement('p');
-          stepTodo.textContent = currentStep.todo;
-          currentPhaseInfoContainer.appendChild(stepTodo);
-        }
+        stepDescription.textContent = currentStep.todo || '';
+      } else {
+        stepTitle.textContent = '';
+        stepDescription.textContent = '';
       }
+    } else {
+      phaseTitle.textContent = '';
+      phaseDescription.textContent = '';
+      stepTitle.textContent = '';
+      stepDescription.textContent = '';
     }
   }

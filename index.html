@@ -1,31 +1,35 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Timers Fresque du Climat</title>
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <div class="container">
-    <h1>Fresque du Climat</h1>
-    <div id="current-phase-info"></div>
-  </div>
-  <div id="timers-container">
-    <button id="prev-phase-btn" class="phase-btn">Phase précédente</button>
-    <div id="timers">
-      <div id="phase-timer">
-        <h2>Timer Phase</h2>
-        <div id="phase-time">00:15:00</div>
-      </div>
-      <div id="global-timer">
-        <h2>Timer Global</h2>
-        <div id="global-time">03:00:00</div>
-      </div>
+<body class="bg-gray-100">
+  <div class="container mx-auto py-8">
+    <h1 class="text-3xl font-bold text-center mb-8">Fresque du Climat</h1>
+    <div id="current-phase-info" class="bg-white p-6 rounded-lg shadow-md mb-8">
+      <h2 class="text-2xl font-bold mb-4"></h2>
+      <p class="text-gray-700 mb-4"></p>
+      <h3 class="text-xl font-semibold mb-2"></h3>
+      <p class="text-gray-600 mb-4"></p>
     </div>
-    <button id="next-phase-btn" class="phase-btn">Phase suivante</button>
-    <!-- <button id="reset-btn">Réinitialiser</button> -->
+  </div>
+  <div id="timers-container" class="fixed bottom-0 left-0 right-0 bg-white p-4 flex justify-center items-center gap-4 shadow-md h-32">
+    <button id="prev-phase-btn" class="phase-btn bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded h-full">Préc.</button>
+
+      <div class="bg-gray-200 p-4 rounded-lg h-full">
+        <h2 class="font-bold">Timer Phase</h2>
+        <div id="phase-time" class="text-2xl font-bold">00:15:00</div>
+      </div>
+      <div class="bg-gray-200 p-4 rounded-lg h-full">
+        <h2 class="font-bold">Timer Global</h2>
+        <div id="global-time" class="text-2xl font-bold">03:00:00</div>
+      </div>
+
+    <button id="next-phase-btn" class="phase-btn bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded h-full">Suiv.</button>
+    <!-- <button id="reset-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded h-full">RESET</button> -->
   </div>
 
   <script src="steps.json"></script>
