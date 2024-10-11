@@ -55,6 +55,7 @@ fetch('steps.json')
             stepElement.appendChild(stepTimer);
   
             if (step.todo) {
+              console.log(step.todo);
               const stepTodo = document.createElement('p');
               stepTodo.textContent = step.todo;
               stepElement.appendChild(stepTodo);
