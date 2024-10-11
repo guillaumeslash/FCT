@@ -91,6 +91,14 @@ function formatTime(seconds) {
   return `${padZero(hours)}:${padZero(minutes)}:${padZero(remainingSeconds)}`;
 }
 
+function formatTimeMinSec(seconds) {
+  //const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const remainingSeconds = seconds % 60;
+
+  return `${padZero(minutes)}:${padZero(remainingSeconds)}`;
+}
+
 function padZero(value) {
   return value.toString().padStart(2, '0');
 }
@@ -116,7 +124,7 @@ function startPhaseTimer(phase, step) {
   
       phaseTimer = setInterval(() => {
         remainingTime--;
-        phaseTimeDisplay.textContent = formatTime(remainingTime);
+        phaseTimeDisplay.textContent = formatTimeMinSec(remainingTime);
   
         if (remainingTime === 0) {
           clearInterval(phaseTimer);
