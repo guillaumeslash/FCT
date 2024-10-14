@@ -8,6 +8,7 @@ const globalTimeDisplay = document.getElementById('global-time');
 const resetBtn = document.getElementById('reset-btn');
 const prevPhaseBtn = document.getElementById('prev-phase-btn');
 const nextPhaseBtn = document.getElementById('next-phase-btn');
+const chimeSound = document.getElementById('chime-sound');
 
 let globalTimer;
 let phaseTimer;
@@ -93,7 +94,6 @@ function formatTime(seconds) {
 }
 
 function formatTimeMinSec(seconds) {
-  //const hours = Math.floor(seconds / 3600);
   const minutes = Math.floor((seconds % 3600) / 60);
   const remainingSeconds = seconds % 60;
 
@@ -120,22 +120,23 @@ function startGlobalTimer(duration) {
 }
 
 function startPhaseTimer(phase, step) {
-    if (step) {
-      let remainingTime = step.duration * 60;
-  
-      phaseTimer = setInterval(() => {
-        remainingTime--;
-        phaseTimeDisplay.textContent = formatTimeMinSec(remainingTime);
-  
-        if (remainingTime === 0) {
-          clearInterval(phaseTimer);
-          handleNextStep();
-        }
-      }, 1000);
-    } else {
-      alert('Cette phase ne contient aucune étape.');
-    }
+  if (step) {
+    let remainingTime = step.duration * 60;
+
+    phaseTimer = setInterval(() => {
+      remainingTime--;
+      phaseTimeDisplay.textContent = formatTimeMinSec(remainingTime);
+
+      if (remainingTime === 0) {
+        clearInterval(phaseTimer);
+        playChimeSound(); // Jouer le son à la fin du timer
+        handleNextStep();
+      }
+    }, 1000);
+  } else {
+    alert('Cette phase ne contient aucune étape.');
   }
+}
 
   function handlePrevStep() {
     const phaseIndex = data.indexOf(currentPhase);
@@ -193,4 +194,9 @@ function startPhaseTimer(phase, step) {
       stepTitle.textContent = '';
       stepDescription.textContent = '';
     }
+  }
+
+  function playChimeSound() {
+    chimeSound.currentTime = 0; // Réinitialiser la position de lecture
+    chimeSound.play();
   }
