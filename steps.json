@@ -5,7 +5,8 @@
         {
             "name": "Introduction (15 min.)",
             "duration": 15,
-            "todo": "Faire un brise-glace. \n\nInsister sur le caractère scientifique : un jeu créé à partir des données issues du GIEC. \n\nAnnoncer les 4 phases et poser le cadre collectif. \n\nPartager les objectifs de l'atelier et la règle principale : remettre dans l'ordre les causes et conséquences"
+            "todo": "Faire un brise-glace. \n\nInsister sur le caractère scientifique : un jeu créé à partir des données issues du GIEC. \n\nAnnoncer les 4 phases : \n1. Réflexion \n2. Créativité & Synthèse \n3. Émotions \n4. Discussion & leviers d'action \n\nPoser le cadre collectif. \n\nPartager les objectifs de l'atelier et la règle principale : remettre dans l'ordre les causes et conséquences.",
+            "focusOn": "Les messages clés à transmettre durant l'atelier :\n\n· Le dérèglement climatique est scientifiquement prouvé.\n\n· L'humanité est responsable à 100% du dérèglement climatique.\n\n· Les conséquences du dérèglement sont déjà observables.\n\n· Tout le monde est concerné.\n\n· Il est urgent d'agir."
         }
         ]
     },
@@ -15,27 +16,32 @@
         {
           "name": "Lot 1 (10 min.)",
           "duration": 10,
-          "todo": "Poser les cartes sur la table, images visibles"
+          "todo": "Poser les cartes sur la table, images visibles.",
+          "focusOn": "· Les énergies fossiles : quelles sont-elles ? Pourquoi fossiles ?\n\n· L'effet de serre : naturel ET additionnel. Utiliser la métaphore de la couette.\n\n· Fonte de la banquise : faire retourner la carte."
         },
         {
           "name": "Lot 2 (15 min.)",
           "duration": 15,
-          "todo": "Distribuer et faire lire les cartes recto-verso à voix haute"
+          "todo": "Distribuer et faire lire les cartes recto-verso à voix haute.",
+          "focusOn": "· Le lien entre l'agriculture et la déforestation : impact important via le CO₂ émis par les feux.\n\n· Le lien entre l'agriculture et les autres GES.\n\n· Les autres GES : citer méthane et protoxyde d'azote (pouvoir réchauffant supérieur à celui du CO₂).\n\n· Puits de carbone : en miroir avec les émissions de CO₂."
         },
         {
           "name": "Lot 3 (20 min.)",
           "duration": 20,
-          "todo": "Former une colonne avec les cartes 16, 17, 18, 19, 21. Faire tracer les flèches (effaçables). Laisser de la place pour le titre"
+          "todo": "Former une colonne avec les cartes 16, 17, 18, 19, 21. \n\nFaire tracer les flèches (effaçables). \n\nLaisser de la place pour le titre.",
+          "focusOn": "· Avec la version complète : les aérosols, le forçage radiatif et le bilan énergétique, à l'aide de la carte effet de serre additionnel.\n\n· La perturbation du cycle de l'eau.\n\nCes 2 points sont optionnels lorsque tu débutes : à ne garder que si tu as le temps et te sens en capacité de les expliquer."
         },
         {
           "name": "Lot 4 (15 min.)",
           "duration": 15,
-          "todo": "Faire attention au timing"
+          "todo": "Faire attention au timing.",
+          "focusOn": "· Les crues (eau douce) vs submersion (eau de mer).\n\n· Les canicules (chaud) vs sécheresse (manque d'eau)."
         },
         {
           "name": "Lot 5 (15 min.)",
           "duration": 15,
-          "todo": "Faire deviner les 5 dernières cartes. Verbaliser leur baisse de moral et d'énergie : elle est normale. Tout le but de la suite va être de remonter ensemble !"
+          "todo": "Faire deviner les 5 dernières cartes. \n\nVerbaliser leur baisse de moral et d'énergie : elle est normale. \n\nTout le but de la suite va être de remonter ensemble !",
+          "focusOn": "· Le permafrost : rendre visible la boucle de rétroaction positive (les conséquences renforcent les causes)."
         }
       ]
     },
@@ -45,7 +51,8 @@
         {
           "name": "Créativité & Synthèse (15 min.)",
           "duration": 15,
-          "todo": "Faire tracer les flèches au propre, trouver un titre, illustrer. Résumer toi-même en 5 min l'ensemble"
+          "todo": "Faire tracer les flèches au propre, trouver un titre, illustrer. Résumer toi-même en 5 min l'ensemble.",
+            "focusOn": "Rien pour cette étape."
         }
       ]
     },
@@ -55,7 +62,8 @@
         {
           "name": "Émotions (10 min.)",
           "duration": 10,
-          "todo": "Faire exprimer les émotions en binômes : « je me sens... » à l'aide de la roue des émotions simplifiée"
+          "todo": "Faire exprimer les émotions en binômes : « je me sens... » à l'aide de la roue des émotions simplifiée.",
+            "focusOn": "Rien pour cette étape."
         }
       ]
     },
@@ -65,12 +73,14 @@
         {
           "name": "Ordres de grandeurs (5 min.)",
           "duration": 5,
-          "todo": "Présenter quelques visuels & graphiques"
+          "todo": "Présenter quelques visuels & graphiques.",
+            "focusOn": "Rien pour cette étape."
         },
         {
           "name": "Génération d'idées (55 min.)",
           "duration": 55,
-          "todo": "Partager le triangle de l'inaction. Faire noter en individuel, des idées d'actions. Partage et priorisation sur une matrice impact / difficulté"
+          "todo": "Partager le triangle de l'inaction. \n\nFaire noter en individuel, des idées d'actions. \n\nPartage et priorisation sur une matrice impact / difficulté.",
+            "focusOn": "Rien pour cette étape."
         }
       ]
     },
@@ -80,7 +90,8 @@
         {
           "name": "Conclusion (5 min.)",
           "duration": 5,
-          "todo": "Tour de table des ressentis et actions individuelles à entreprendre à son échelle. Encourager à devenir animateur.ice, en particulier dans leur organisation. Partager ta propre expérience d'animateur.ice"
+          "todo": "Tour de table des ressentis et actions individuelles à entreprendre à son échelle. \n\nEncourager à devenir animateur.ice, en particulier dans leur organisation. \n\nPartager ta propre expérience d'animateur.ice.",
+            "focusOn": "Rien pour cette étape."
         }
       ]
     }

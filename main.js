@@ -1,8 +1,8 @@
 const currentPhaseInfoContainer = document.getElementById('current-phase-info');
-const phaseTitle = currentPhaseInfoContainer.querySelector('h2');
-const phaseDescription = currentPhaseInfoContainer.querySelector('p:first-of-type');
-const stepTitle = currentPhaseInfoContainer.querySelector('h3');
-const stepDescription = currentPhaseInfoContainer.querySelector('p:last-of-type');
+const phaseTitle = document.getElementById('phase-title');
+const stepTitle = document.getElementById('step-title');
+const stepTodo = document.getElementById('step-todo');
+const stepFocusOn = document.getElementById('step-focus-on');
 const phaseTimeDisplay = document.getElementById('phase-time');
 const globalTimeDisplay = document.getElementById('global-time');
 const resetBtn = document.getElementById('reset-btn');
@@ -25,52 +25,6 @@ fetch('steps.json')
   .catch(error => console.error('Erreur lors du chargement des données :', error));
 
   function initializeApp() {
-    data.forEach(phase => {
-        const phaseElement = document.createElement('div');
-        phaseElement.classList.add('phase');
-  
-        const phaseTitle = document.createElement('h2');
-        phaseTitle.textContent = phase.name;
-        phaseElement.appendChild(phaseTitle);
-  
-        if (phase.todo) {
-          const phaseTodo = document.createElement('p');
-          phaseTodo.textContent = phase.todo;
-          phaseElement.appendChild(phaseTodo);
-        }
-  
-        if (phase.steps) {
-          const stepsContainer = document.createElement('div');
-          stepsContainer.classList.add('steps-container');
-  
-          phase.steps.forEach(step => {
-            const stepElement = document.createElement('div');
-            stepElement.classList.add('etape');
-  
-            const stepName = document.createElement('h3'); // il faut changer ici 
-            stepName.textContent = step.name;
-            stepElement.appendChild(stepName);
-  
-            const stepTimer = document.createElement('div');
-            stepTimer.textContent = formatTime(step.duration * 60);
-            stepElement.appendChild(stepTimer);
-  
-            if (step.todo) {
-              console.log(step.todo);
-              const stepTodo = document.createElement('p');
-              stepTodo.textContent = step.todo;
-              stepElement.appendChild(stepTodo);
-            }
-  
-            stepsContainer.appendChild(stepElement);
-          });
-  
-          phaseElement.appendChild(stepsContainer);
-        }
-  
-        //phasesContainer.appendChild(phaseElement);
-      });
-  
     // Démarrer avec la première phase et la première étape
     currentPhase = data[0];
     currentStep = currentPhase.steps ? currentPhase.steps[0] : null;
@@ -114,7 +68,7 @@ function startGlobalTimer(duration) {
 
     if (remainingTime === 0) {
       clearInterval(globalTimer);
-      alert('Le timer global est terminé !');
+      //alert('Le timer global est terminé !');
     }
   }, 1000);
 }
@@ -134,7 +88,7 @@ function startPhaseTimer(phase, step) {
       }
     }, 1000);
   } else {
-    alert('Cette phase ne contient aucune étape.');
+    //alert('Cette phase ne contient aucune étape.');
   }
 }
 
@@ -179,20 +133,19 @@ function startPhaseTimer(phase, step) {
   function updateCurrentPhaseInfo() {
     if (currentPhase) {
       phaseTitle.textContent = currentPhase.name;
-      phaseDescription.textContent = currentPhase.todo || '';
   
       if (currentStep) {
         stepTitle.textContent = currentStep.name;
-        stepDescription.textContent = currentStep.todo || '';
+        stepTodo.textContent = currentStep.todo || '';
+        stepFocusOn.textContent = currentStep.focusOn || '';
       } else {
         stepTitle.textContent = '';
-        stepDescription.textContent = '';
+        stepTodo.textContent = '';
       }
     } else {
       phaseTitle.textContent = '';
-      phaseDescription.textContent = '';
       stepTitle.textContent = '';
-      stepDescription.textContent = '';
+      stepTodo.textContent = '';
     }
   }
 
