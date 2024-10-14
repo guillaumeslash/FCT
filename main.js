@@ -153,3 +153,7 @@ function startPhaseTimer(phase, step) {
     chimeSound.currentTime = 0; // Réinitialiser la position de lecture
     chimeSound.play();
   }
+
+  document.ondblclick = function(e) {
+    e.preventDefault();
+}
