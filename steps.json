@@ -1,6 +1,6 @@
 [
     {
-    "name": "Phase initiale",
+    "name": "Phase initiale (15 min.)",
     "steps": [
         {
             "name": "Introduction (15 min.)",
@@ -11,7 +11,7 @@
         ]
     },
     {
-      "name": "Phase 1. Réflexion",
+      "name": "Phase 1. Réflexion (75 min.)",
       "steps": [
         {
           "name": "Lot 1 (10 min.)",
@@ -46,7 +46,7 @@
       ]
     },
     {
-      "name": "Phase 2",
+      "name": "Phase 2 (15 min.)",
       "steps": [
         {
           "name": "Créativité & Synthèse (15 min.)",
@@ -57,7 +57,7 @@
       ]
     },
     {
-      "name": "Phase 3",
+      "name": "Phase 3 (10 min.)",
       "steps": [
         {
           "name": "Émotions (10 min.)",
@@ -68,7 +68,7 @@
       ]
     },
     {
-      "name": "Phase 4. Discussion & leviers d'action",
+      "name": "Phase 4. Discussion & leviers d'action (60 min.)",
       "steps": [
         {
           "name": "Ordres de grandeurs (5 min.)",
@@ -85,7 +85,7 @@
       ]
     },
     {
-      "name": "Phase finale",
+      "name": "Phase finale (5 min.)",
       "steps": [
         {
           "name": "Conclusion (5 min.)",
