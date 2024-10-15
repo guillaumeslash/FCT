@@ -13,8 +13,8 @@ const chimeSound = document.getElementById("chime-sound");
 const remove1MinBtn = document.getElementById("remove-1-min");
 const add1MinBtn = document.getElementById("add-1-min");
 
-let globalTimer;
 let phaseTimer;
+let phaseTimerSec = null;
 let currentPhase = null;
 let currentStep = null;
 let data = [];
@@ -33,7 +33,8 @@ function initializeApp() {
   // Démarrer avec la première phase et la première étape
   currentPhase = data[0];
   currentStep = currentPhase.steps ? currentPhase.steps[0] : null;
-  startPhaseTimer(currentPhase, currentStep);
+  phaseTimerSec = currentStep.duration * 60;
+  startPhaseTimer(currentStep);
   startCurrentTime();
 
   // Gérer les boutons "Phase précédente" et "Phase suivante"
@@ -72,28 +73,18 @@ function startCurrentTime() {
   setInterval(updateCurrentTime, 1000); // Mettre à jour l'heure toutes les secondes
 }
 
-function startPhaseTimer(
-  phase,
-  step,
-  initialRemainingTime = step.duration * 60
-) {
-  if (step) {
-    console.log(step.duration * 60);
-    let remainingTime = initialRemainingTime;
-
-    phaseTimer = setInterval(() => {
-      remainingTime--;
-      phaseTimeDisplay.textContent = formatTimeMinSec(remainingTime);
-
-      if (remainingTime === 0) {
-        clearInterval(phaseTimer);
-        playChimeSound(); // Jouer le son à la fin du timer
-        handleNextStep();
-      }
-    }, 1000);
-  } else {
-    //alert('Cette phase ne contient aucune étape.');
-  }
+function startPhaseTimer(step) {
+  phaseTimer = setInterval(() => {
+    phaseTimerSec--;
+    if (phaseTimerSec > 0) {
+      phaseTimeDisplay.textContent = formatTimeMinSec(phaseTimerSec);
+    }
+    if (phaseTimerSec === 0) {
+      clearInterval(phaseTimer);
+      playChimeSound(); // Jouer le son à la fin du timer
+      handleNextStep();
+    }
+  }, 1000);
 }
 
 function handlePrevStep() {
@@ -105,14 +96,16 @@ function handlePrevStep() {
   if (stepIndex > 0) {
     clearInterval(phaseTimer);
     currentStep = currentPhase.steps[stepIndex - 1];
-    startPhaseTimer(currentPhase, currentStep);
+    phaseTimerSec = currentStep.duration * 60;
+    startPhaseTimer(currentStep);
   } else if (phaseIndex > 0) {
     clearInterval(phaseTimer);
     currentPhase = data[phaseIndex - 1];
     currentStep = currentPhase.steps
       ? currentPhase.steps[currentPhase.steps.length - 1]
       : null;
-    startPhaseTimer(currentPhase, currentStep);
+    phaseTimerSec = currentStep.duration * 60;
+    startPhaseTimer(currentStep);
   }
 
   // Mettre à jour les informations de la phase et de l'étape en cours
@@ -128,12 +121,14 @@ function handleNextStep() {
   if (stepIndex < currentPhase.steps.length - 1) {
     clearInterval(phaseTimer);
     currentStep = currentPhase.steps[stepIndex + 1];
-    startPhaseTimer(currentPhase, currentStep);
+    phaseTimerSec = currentStep.duration * 60;
+    startPhaseTimer(currentStep);
   } else if (phaseIndex < data.length - 1) {
     clearInterval(phaseTimer);
     currentPhase = data[phaseIndex + 1];
     currentStep = currentPhase.steps ? currentPhase.steps[0] : null;
-    startPhaseTimer(currentPhase, currentStep);
+    phaseTimerSec = currentStep.duration * 60;
+    startPhaseTimer(currentStep);
   }
 
   // Mettre à jour les informations de la phase et de l'étape en cours
@@ -176,23 +171,17 @@ function updateCurrentTime() {
 }
 
 function removeOneMinute() {
-  if (phaseTimer) {
-    const timeString = phaseTimeDisplay.textContent;
-    const [minutes, seconds] = timeString.split(":").map(Number);
-    const remainingTime = minutes * 60 + seconds;
-    const newRemainingTime = Math.max(remainingTime - 60, 0);
+  if (phaseTimer && phaseTimerSec - 60 > 0) {
+    phaseTimerSec = phaseTimerSec - 60;
     clearInterval(phaseTimer);
-    startPhaseTimer(currentPhase, currentStep, newRemainingTime);
+    startPhaseTimer(currentStep, phaseTimerSec);
   }
 }
 
 function addOneMinute() {
-  if (phaseTimer) {
-    const timeString = phaseTimeDisplay.textContent;
-    const [minutes, seconds] = timeString.split(":").map(Number);
-    const remainingTime = minutes * 60 + seconds;
-    const newRemainingTime = remainingTime + 60;
+  if (phaseTimer && phaseTimerSec + 60 < 3599) {
+    phaseTimerSec = phaseTimerSec + 60;
     clearInterval(phaseTimer);
-    startPhaseTimer(currentPhase, currentStep, newRemainingTime);
+    startPhaseTimer(currentStep, phaseTimerSec);
   }
 }
