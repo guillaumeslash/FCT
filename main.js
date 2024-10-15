@@ -1,14 +1,17 @@
-const currentPhaseInfoContainer = document.getElementById('current-phase-info');
-const phaseTitle = document.getElementById('phase-title');
-const stepTitle = document.getElementById('step-title');
-const stepTodo = document.getElementById('step-todo');
-const stepFocusOn = document.getElementById('step-focus-on');
-const phaseTimeDisplay = document.getElementById('phase-time');
-const globalTimeDisplay = document.getElementById('global-time');
-const resetBtn = document.getElementById('reset-btn');
-const prevPhaseBtn = document.getElementById('prev-phase-btn');
-const nextPhaseBtn = document.getElementById('next-phase-btn');
-const chimeSound = document.getElementById('chime-sound');
+const currentPhaseInfoContainer = document.getElementById("current-phase-info");
+const phaseTitle = document.getElementById("phase-title");
+const stepTitle = document.getElementById("step-title");
+const stepTodo = document.getElementById("step-todo");
+const stepFocusOn = document.getElementById("step-focus-on");
+const phaseTimeDisplay = document.getElementById("phase-time");
+const currentTimeDisplay = document.getElementById("current-time");
+const resetBtn = document.getElementById("reset-btn");
+const prevPhaseBtn = document.getElementById("prev-phase-btn");
+const nextPhaseBtn = document.getElementById("next-phase-btn");
+const chimeSound = document.getElementById("chime-sound");
+
+const remove1MinBtn = document.getElementById("remove-1-min");
+const add1MinBtn = document.getElementById("add-1-min");
 
 let globalTimer;
 let phaseTimer;
@@ -16,28 +19,34 @@ let currentPhase = null;
 let currentStep = null;
 let data = [];
 
-fetch('steps.json')
-  .then(response => response.json())
-  .then(fetchedData => {
+fetch("steps.json")
+  .then((response) => response.json())
+  .then((fetchedData) => {
     data = fetchedData;
     initializeApp();
   })
-  .catch(error => console.error('Erreur lors du chargement des données :', error));
+  .catch((error) =>
+    console.error("Erreur lors du chargement des données :", error)
+  );
 
-  function initializeApp() {
-    // Démarrer avec la première phase et la première étape
-    currentPhase = data[0];
-    currentStep = currentPhase.steps ? currentPhase.steps[0] : null;
-    startPhaseTimer(currentPhase, currentStep);
-    startGlobalTimer(10800); // 3 heures
-  
-    // Gérer les boutons "Phase précédente" et "Phase suivante"
-    prevPhaseBtn.addEventListener('click', handlePrevStep);
-    nextPhaseBtn.addEventListener('click', handleNextStep);
+function initializeApp() {
+  // Démarrer avec la première phase et la première étape
+  currentPhase = data[0];
+  currentStep = currentPhase.steps ? currentPhase.steps[0] : null;
+  startPhaseTimer(currentPhase, currentStep);
+  startCurrentTime();
 
-    // Afficher les informations de la phase et de l'étape en cours
-    updateCurrentPhaseInfo();
-  }
+  // Gérer les boutons "Phase précédente" et "Phase suivante"
+  prevPhaseBtn.addEventListener("click", handlePrevStep);
+  nextPhaseBtn.addEventListener("click", handleNextStep);
+
+  // Gérer les boutons "Retirer 1 minute" et "Ajouter 1 minute"
+  remove1MinBtn.addEventListener("click", removeOneMinute);
+  add1MinBtn.addEventListener("click", addOneMinute);
+
+  // Afficher les informations de la phase et de l'étape en cours
+  updateCurrentPhaseInfo();
+}
 
 function formatTime(seconds) {
   const hours = Math.floor(seconds / 3600);
@@ -55,27 +64,22 @@ function formatTimeMinSec(seconds) {
 }
 
 function padZero(value) {
-  return value.toString().padStart(2, '0');
+  return value.toString().padStart(2, "0");
 }
 
-function startGlobalTimer(duration) {
-  let remainingTime = duration;
-
-  globalTimer = setInterval(() => {
-    remainingTime--;
-    globalTimeDisplay.textContent = formatTime(remainingTime);
-    localStorage.setItem('globalTimer', remainingTime.toString());
-
-    if (remainingTime === 0) {
-      clearInterval(globalTimer);
-      //alert('Le timer global est terminé !');
-    }
-  }, 1000);
+function startCurrentTime() {
+  updateCurrentTime(); // Afficher l'heure actuelle immédiatement
+  setInterval(updateCurrentTime, 1000); // Mettre à jour l'heure toutes les secondes
 }
 
-function startPhaseTimer(phase, step) {
+function startPhaseTimer(
+  phase,
+  step,
+  initialRemainingTime = step.duration * 60
+) {
   if (step) {
-    let remainingTime = step.duration * 60;
+    console.log(step.duration * 60);
+    let remainingTime = initialRemainingTime;
 
     phaseTimer = setInterval(() => {
       remainingTime--;
@@ -92,64 +96,103 @@ function startPhaseTimer(phase, step) {
   }
 }
 
-  function handlePrevStep() {
-    const phaseIndex = data.indexOf(currentPhase);
-    const stepIndex = currentPhase.steps ? currentPhase.steps.indexOf(currentStep) : -1;
-  
-    if (stepIndex > 0) {
-      clearInterval(phaseTimer);
-      currentStep = currentPhase.steps[stepIndex - 1];
-      startPhaseTimer(currentPhase, currentStep);
-    } else if (phaseIndex > 0) {
-      clearInterval(phaseTimer);
-      currentPhase = data[phaseIndex - 1];
-      currentStep = currentPhase.steps ? currentPhase.steps[currentPhase.steps.length - 1] : null;
-      startPhaseTimer(currentPhase, currentStep);
-    }
+function handlePrevStep() {
+  const phaseIndex = data.indexOf(currentPhase);
+  const stepIndex = currentPhase.steps
+    ? currentPhase.steps.indexOf(currentStep)
+    : -1;
 
-    // Mettre à jour les informations de la phase et de l'étape en cours
-    updateCurrentPhaseInfo();
-  }
-  
-  function handleNextStep() {
-    const phaseIndex = data.indexOf(currentPhase);
-    const stepIndex = currentPhase.steps ? currentPhase.steps.indexOf(currentStep) : -1;
-  
-    if (stepIndex < currentPhase.steps.length - 1) {
-      clearInterval(phaseTimer);
-      currentStep = currentPhase.steps[stepIndex + 1];
-      startPhaseTimer(currentPhase, currentStep);
-    } else if (phaseIndex < data.length - 1) {
-      clearInterval(phaseTimer);
-      currentPhase = data[phaseIndex + 1];
-      currentStep = currentPhase.steps ? currentPhase.steps[0] : null;
-      startPhaseTimer(currentPhase, currentStep);
-    }
-
-    // Mettre à jour les informations de la phase et de l'étape en cours
-    updateCurrentPhaseInfo();
+  if (stepIndex > 0) {
+    clearInterval(phaseTimer);
+    currentStep = currentPhase.steps[stepIndex - 1];
+    startPhaseTimer(currentPhase, currentStep);
+  } else if (phaseIndex > 0) {
+    clearInterval(phaseTimer);
+    currentPhase = data[phaseIndex - 1];
+    currentStep = currentPhase.steps
+      ? currentPhase.steps[currentPhase.steps.length - 1]
+      : null;
+    startPhaseTimer(currentPhase, currentStep);
   }
 
-  function updateCurrentPhaseInfo() {
-    if (currentPhase) {
-      phaseTitle.textContent = currentPhase.name;
-  
-      if (currentStep) {
-        stepTitle.textContent = currentStep.name;
-        stepTodo.textContent = currentStep.todo || '';
-        stepFocusOn.textContent = currentStep.focusOn || '';
-      } else {
-        stepTitle.textContent = '';
-        stepTodo.textContent = '';
-      }
+  // Mettre à jour les informations de la phase et de l'étape en cours
+  updateCurrentPhaseInfo();
+}
+
+function handleNextStep() {
+  const phaseIndex = data.indexOf(currentPhase);
+  const stepIndex = currentPhase.steps
+    ? currentPhase.steps.indexOf(currentStep)
+    : -1;
+
+  if (stepIndex < currentPhase.steps.length - 1) {
+    clearInterval(phaseTimer);
+    currentStep = currentPhase.steps[stepIndex + 1];
+    startPhaseTimer(currentPhase, currentStep);
+  } else if (phaseIndex < data.length - 1) {
+    clearInterval(phaseTimer);
+    currentPhase = data[phaseIndex + 1];
+    currentStep = currentPhase.steps ? currentPhase.steps[0] : null;
+    startPhaseTimer(currentPhase, currentStep);
+  }
+
+  // Mettre à jour les informations de la phase et de l'étape en cours
+  updateCurrentPhaseInfo();
+}
+
+function updateCurrentPhaseInfo() {
+  if (currentPhase) {
+    phaseTitle.textContent = currentPhase.name;
+
+    if (currentStep) {
+      stepTitle.textContent = currentStep.name;
+      stepTodo.textContent = currentStep.todo || "";
+      stepFocusOn.textContent = currentStep.focusOn || "";
     } else {
-      phaseTitle.textContent = '';
-      stepTitle.textContent = '';
-      stepTodo.textContent = '';
+      stepTitle.textContent = "";
+      stepTodo.textContent = "";
     }
+  } else {
+    phaseTitle.textContent = "";
+    stepTitle.textContent = "";
+    stepTodo.textContent = "";
   }
+}
 
-  function playChimeSound() {
-    chimeSound.currentTime = 0; // Réinitialiser la position de lecture
-    chimeSound.play();
+function playChimeSound() {
+  chimeSound.currentTime = 0; // Réinitialiser la position de lecture
+  chimeSound.play();
+}
+
+function updateCurrentTime() {
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
+
+  currentTimeDisplay.textContent = `${padZero(hours)}:${padZero(
+    minutes
+  )}:${padZero(seconds)}`;
+}
+
+function removeOneMinute() {
+  if (phaseTimer) {
+    const timeString = phaseTimeDisplay.textContent;
+    const [minutes, seconds] = timeString.split(":").map(Number);
+    const remainingTime = minutes * 60 + seconds;
+    const newRemainingTime = Math.max(remainingTime - 60, 0);
+    clearInterval(phaseTimer);
+    startPhaseTimer(currentPhase, currentStep, newRemainingTime);
   }
+}
+
+function addOneMinute() {
+  if (phaseTimer) {
+    const timeString = phaseTimeDisplay.textContent;
+    const [minutes, seconds] = timeString.split(":").map(Number);
+    const remainingTime = minutes * 60 + seconds;
+    const newRemainingTime = remainingTime + 60;
+    clearInterval(phaseTimer);
+    startPhaseTimer(currentPhase, currentStep, newRemainingTime);
+  }
+}
