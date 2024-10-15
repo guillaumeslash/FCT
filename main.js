@@ -74,6 +74,8 @@ function startCurrentTime() {
 }
 
 function startPhaseTimer(step) {
+  phaseTimeDisplay.classList.remove("text-red-500");
+
   phaseTimer = setInterval(() => {
     phaseTimerSec--;
     if (phaseTimerSec > 0) {
@@ -81,8 +83,9 @@ function startPhaseTimer(step) {
     }
     if (phaseTimerSec === 0) {
       clearInterval(phaseTimer);
+      phaseTimeDisplay.textContent = "00:00";
+      phaseTimeDisplay.classList.add("text-red-500");
       playChimeSound(); // Jouer le son à la fin du timer
-      handleNextStep();
     }
   }, 1000);
 }
