@@ -75,7 +75,10 @@ function startCurrentTime() {
 
 function startPhaseTimer(step) {
   phaseTimeDisplay.classList.remove("text-red-500");
-
+  if (phaseTimerSec - 1 > 0) {
+    // Mandatory to immediately show the timing change
+    phaseTimeDisplay.textContent = formatTimeMinSec(phaseTimerSec);
+  }
   phaseTimer = setInterval(() => {
     phaseTimerSec--;
     if (phaseTimerSec > 0) {
