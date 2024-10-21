@@ -1,6 +1,7 @@
 const currentPhaseInfoContainer = document.getElementById("current-phase-info");
 const phaseTitle = document.getElementById("phase-title");
 const stepTitle = document.getElementById("step-title");
+const stepTitleTimer = document.getElementById("step-title-timer");
 const stepTodo = document.getElementById("step-todo");
 const stepFocusOn = document.getElementById("step-focus-on");
 const phaseTimeDisplay = document.getElementById("phase-time");
@@ -146,7 +147,10 @@ function updateCurrentPhaseInfo() {
     phaseTitle.textContent = currentPhase.name;
 
     if (currentStep) {
-      stepTitle.textContent = currentStep.name;
+      const nicetime = ` (${currentStep.duration} min.)`;
+
+      stepTitle.textContent = currentStep.name + nicetime;
+      stepTitleTimer.textContent = currentStep.name;
       stepTodo.textContent = currentStep.todo || "";
       stepFocusOn.textContent = currentStep.focusOn || "";
     } else {
