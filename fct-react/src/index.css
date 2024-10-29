@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+button {
+  /* Permet de bloquer le zoom d'ios */
+  touch-action: manipulation;
+}
+
+* {
+  font-family: "Roboto Mono", monospace;
+}

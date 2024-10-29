@@ -1,8 +1,0 @@
-button {
-  /* Permet de bloquer  */
-  touch-action: manipulation;
-}
-
-* {
-  font-family: "Roboto Mono", monospace;
-}
