@@ -1,5 +1,7 @@
 # Fresque du Climat Timer : FCT
 
+Le lien : https://guillaumeslash.github.io/FCT/ (à mettre en favori)
+
 **Timer** _(ou minuteur pour les allergiques aux anglicismes 😁)_ **et mémo à destination des animateurs et animatrices de la Fresque du Climat.**
 
 ## Informations
