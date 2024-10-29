@@ -5,5 +5,5 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/FCT/',
-  assetsInclude: ['**/*.json']
+  assetsInclude: ['**/*.json', '**/*.mp3', '**/*.jpg']
 })

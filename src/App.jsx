@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import stepsData from '/src/steps.json';
+import { stepsData } from './steps';
 
 function App() {
   const [currentPhase, setCurrentPhase] = useState(stepsData[0]);
@@ -127,7 +127,7 @@ function App() {
       <div className="flex justify-center items-center border-t">
         <img
           className=""
-          src="/imgs/memo.jpg"
+          src="./imgs/memo.jpg"
           alt="lien entre les cartes"
         />
       </div>
@@ -172,7 +172,7 @@ function App() {
         </div>
       </div>
 
-      <audio ref={chimeSoundRef} src="/chime.mp3" preload="auto" />
+      <audio ref={chimeSoundRef} src="./chime.mp3" preload="auto" />
     </div>
   );
 }
