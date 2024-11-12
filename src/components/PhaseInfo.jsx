@@ -27,12 +27,12 @@ export function PhaseInfo({ currentPhase, currentStep }) {
       <h2 className="text-xl font-bold mb-4">
         {currentStep.name} ({currentStep.duration} min.)
       </h2>
-      <h3 className="text-lg font-semibold mb-4">À faire (début étape) 👇</h3>
+      <h3 className="text-lg font-semibold mb-4">Début de l'étape 👇</h3>
       <p className="text-gray-600 mb-4 whitespace-pre-line">
         {processText(currentStep.todo)}
       </p>
       <hr className="mb-4" />
-      <h3 className="text-lg font-semibold mb-4">À faire (fin étape) 👇</h3>
+      <h3 className="text-lg font-semibold mb-4">Fin de l'étape 👇</h3>
       <p className="text-gray-600 whitespace-pre-line">
         {processText(currentStep.focusOn)}
       </p>

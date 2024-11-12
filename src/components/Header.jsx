@@ -19,14 +19,8 @@ export function Header() {
 
   return (
     <div className="container-fluid">
-      <div className="flex flex-row p-6">
-        <div className="basis-3/4">
-          <h1 className="text-2xl font-bold">Fresque du Climat</h1>
-        </div>
-        <div className="basis-1/4 text-right">
-          <p className="text-xs text-center font-bold text-right">Heure</p>
-          <p className="text-sm font-bold">{currentTime}</p>
-        </div>
+      <div className="flex flex-row p-6 justify-center">
+      <a className="text-2xl font-bold underline" href='https://github.com/guillaumeslash/FCT' target='_blank'>Timer Fresque du Climat</a>
       </div>
     </div>
   );
