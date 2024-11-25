@@ -29,19 +29,19 @@ export const stepsData = [
         "name": "Lot 3",
         "duration": 20,
         "todo": "1. Distribuer les cartes, les faire lire, et laisser les participants positionner les cartes par eux-mêmes.",
-        "focusOn": "1. Expliquer les aérosols (si à l'aise).\n\nAérosols : petites particules liquides ou solides en suspension dans l'air, émises par la combustion des énergies fossiles (mais il en existe également à l'état naturel comme les poussières du désert, les cendres volcaniques ou la suie des incendies).\n\nCes aérosols :\n• refroidissent le climat en réflechissant les rayons du soleil.\n• sont mauvais pour la santé.\n(• jouent un rôle dans la formation des nuages et donc dans le régime des pluies.)\n\n2. Expliquer le forçage radiatif.\n\nLe forçage radiatif : mesure du déséquilibre entre l'énergie qui arrive chaque seconde sur terre et celle qui repart.\n• Forçage car l'équilibre radiatif de la terre est déstabilisé.\n• Radiatif car on parle de rayonnements (entrants = soleil / sortants = infrarouges).\n\n3. Expliquer le bilan énergétique.\n\nLe bilan énergétique : Là où va l'énergie du forçage radiatif.\n93% dans la mer car foncée (plus une surface est foncée, plus elle emmagasine la chaleur du soleil).\n\n• Expliquer la perturbation du cycle de l'eau.\n\nIl fait plus chaud, donc : \n- sécheresses\n- précipitations plus intenses (l'eau s'évapore plus vite, elle s'accumule donc dans l'atmosphère et cause de fortes pluies)"
+        "focusOn": "1. Expliquer les aérosols (si à l'aise).\n\nAérosols : petites particules liquides ou solides en suspension dans l'air, émises par la combustion des énergies fossiles (mais il en existe également à l'état naturel comme les poussières du désert, les cendres volcaniques ou la suie des incendies).\n\nCes aérosols :\n• refroidissent le climat en réflechissant les rayons du soleil.\n• sont mauvais pour la santé.\n(• jouent un rôle dans la formation des nuages et donc dans le régime des pluies.)\n\n2. Expliquer le forçage radiatif.\n\nLe forçage radiatif : mesure du déséquilibre entre l'énergie qui arrive chaque seconde sur terre et celle qui repart.\n• Forçage car l'équilibre radiatif de la terre est déstabilisé.\n• Radiatif car on parle de rayonnements (entrants = soleil / sortants = infrarouges).\n\n3. Expliquer le bilan énergétique.\n\nLe bilan énergétique : Là où va l'énergie du forçage radiatif.\n93% dans la mer car foncée (plus une surface est foncée, plus elle emmagasine la chaleur du soleil).\n\n4. Expliquer la perturbation du cycle de l'eau.\n\nIl fait plus chaud, donc : \n- sécheresses\n- précipitations plus intenses (l'eau s'évapore plus vite, elle s'accumule donc dans l'atmosphère et cause de fortes pluies)"
       },
       {
         "name": "Lot 4",
         "duration": 15,
-        "todo": "0. AVANT DE COMMENCER LE LOT 4\n\nTasser les cartes vers la moitié gauche de la table.\n\nPuis former une colonne avec les cartes 21, 17, 19, 16, 18. (cf image dessous)\n\nEnfin, faire tracer les flèches (effaçables). Maintenant on peut commencer le lot 4.\n\n1. Distribuer les cartes, les faire lire, et laisser les participants positionner les cartes par eux-mêmes.",
+        "todo": "1. Tasser les cartes vers la moitié gauche de la table.\n\n2. Former une colonne avec les cartes 21, 17, 19, 16, 18. (cf image dessous)\n\n3. Faire tracer les flèches (effaçables). Quand c'est fait, le lot 4 peut commencer.\n\n4. Distribuer les cartes, les faire lire, et laisser les participants positionner les cartes par eux-mêmes.",
         "focusOn": "1. Insister sur la différence entre les crues (eau douce) vs les submersions (eau de mer).\n\n2. Insister sur la différence entre les canicules (forte chaleur durant + de 3 jours) vs les sécheresses (manque d'eau)."
       },
       {
         "name": "Lot 5",
         "duration": 15,
-        "todo": "Faire deviner les 5 dernières cartes.\n\nVerbaliser leur baisse de moral et d'énergie : elle est normale.\n\nTout le but de la suite va être de remonter ensemble !",
-        "focusOn": "• Le permafrost : rendre visible la boucle de rétroaction positive (les conséquences renforcent les causes)."
+        "todo": "1. Distribuer les cartes sauf les 5 dernières (il faudra les faire deviner). ",
+        "focusOn": "1. Faire deviner les 5 dernières cartes.\n\n2. Expliquer le permafrost.\n\nLe permafrost est un sol gelé pendant au moins deux années consécutives.\nRendre visible la boucle de rétroaction positive (les conséquences renforcent les causes).\n\n3. Verbaliser leur baisse de moral et d'énergie : elle est normale. Tout le but de la suite va être de remonter ensemble !"
       }
     ]
   },
@@ -51,7 +51,7 @@ export const stepsData = [
       {
         "name": "Créativité & Synthèse",
         "duration": 15,
-        "todo": "Faire tracer les flèches au propre, trouver un titre, illustrer. Résumer toi-même en 5 min l'ensemble.",
+        "todo": "1. Faire tracer les flèches au propre, trouver un titre, illustrer. \n\n2. Résumer toi-même en 5 min l'ensemble.",
         "focusOn": "Rien pour cette étape."
       }
     ]
@@ -62,7 +62,7 @@ export const stepsData = [
       {
         "name": "Émotions",
         "duration": 10,
-        "todo": "Faire exprimer les émotions en binômes : « je me sens... » à l'aide de la roue des émotions simplifiée.",
+        "todo": "1. Faire exprimer les émotions en binômes : « je me sens... » à l'aide de la roue des émotions simplifiée.",
         "focusOn": "Rien pour cette étape."
       }
     ]
@@ -73,13 +73,13 @@ export const stepsData = [
       {
         "name": "Ordres de grandeurs",
         "duration": 5,
-        "todo": "Présenter quelques visuels & graphiques.",
+        "todo": "1. Présenter quelques visuels & graphiques.",
         "focusOn": "Rien pour cette étape."
       },
       {
         "name": "Génération d'idées",
         "duration": 55,
-        "todo": "Partager le triangle de l'inaction.\n\nFaire noter en individuel, des idées d'actions.\n\nPartage et priorisation sur une matrice impact / difficulté.",
+        "todo": "1. Partager le triangle de l'inaction.\n\n2. Faire noter en individuel, des idées d'actions.\n\n3. Partage et priorisation sur une matrice impact / difficulté.",
         "focusOn": "Rien pour cette étape."
       }
     ]
@@ -90,8 +90,8 @@ export const stepsData = [
       {
         "name": "Conclusion",
         "duration": 5,
-        "todo": "Tour de table des ressentis et actions individuelles à entreprendre à son échelle.\n\nEncourager à devenir animateur.ice, en particulier dans leur organisation.\n\nPartager ta propre expérience d'animateur.ice.",
-        "focusOn": "Rappeler si nécessaire ces messages clés :\n\n• Le dérèglement climatique est scientifiquement prouvé.\n\n• L'humanité est responsable à 100% du dérèglement climatique.\n\n• Les conséquences du dérèglement sont déjà observables.\n\n• Tout le monde est concerné.\n\n• Il est urgent d'agir.\n\n\nCette application web est disponible en open source ici : https://github.com/guillaumeslash/FCT"
+        "todo": "1. Tour de table des ressentis et actions individuelles à entreprendre à son échelle.\n\n2. Encourager à devenir animateur.ice, en particulier dans leur organisation.\n\n3. Partager ta propre expérience d'animateur.ice.",
+        "focusOn": "Cette application web est disponible en open source ici : https://github.com/guillaumeslash/FCT"
       }
     ]
   }
