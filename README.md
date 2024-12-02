@@ -1,4 +1,4 @@
-# Fresque du Climat Timer : FCT
+# Timer Fresque du Climat : FCT
 
 L'application web est disponible ici 👉 https://guillaumeslash.github.io/FCT/ (à mettre en favori)
 
